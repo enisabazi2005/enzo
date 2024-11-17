@@ -1,0 +1,10 @@
+.text-blue-500 { 
+    color:rgb(79 70 229 / var(--tw-bg-opacity, 1)) !important; 
+}
+#profile {
+    width: 300px !important;
+    height: 300px !important;
+}
+#main-banner-1 { 
+    padding: 50px  !important;
+}
