@@ -11,6 +11,7 @@
     <link href="https://cdn.flyonui.com/fy-assets/css/main.css" rel="stylesheet">
 </head>
 <body>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="./node_modules/lodash/lodash.js"></script>
     <script src="./node_modules/apexcharts/dist/apexcharts.js"></script>
     
@@ -268,60 +269,51 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-          // Define chart options
-          const options = {
-            chart: {
-              type: "donut",
-              height: 300,
+            const options = {
+  chart: {
+    type: "donut",
+    height: 300,
+  },
+  series: [20, 50, 20, 10],
+  labels: ["ReactJS", "PHP,Laravel", "TypeScript", "Testing"],
+  plotOptions: {
+    pie: {
+      donut: {
+        size: "70%",
+        labels: {
+          show: true,
+          name: {
+            fontSize: "1.5rem",
+            color: "#374151", // Tailwind Gray-700
+          },
+          value: {
+            fontSize: "1.25rem",
+            color: "#4B5563", // Tailwind Gray-600
+            formatter: function (val) {
+              return parseInt(val, 20) + "%";
             },
-            series: [20, 50, 20, 10],
-            labels: ["ReactJS", "PHP,Laravel", "TypeScript", "Testing"],
-            plotOptions: {
-              pie: {
-                donut: {
-                  size: "70%",
-                  labels: {
-                    show: true,
-                    name: {
-                      fontSize: "1.5rem",
-                      color: "#374151", // Tailwind Gray-700
-                    },
-                    value: {
-                      fontSize: "1.25rem",
-                      color: "#4B5563", // Tailwind Gray-600
-                      formatter: function (val) {
-                        return parseInt(val, 20) + "%";
-                      },
-                    },
-                    total: {
-                      show: true,
-                      label: "Skills",
-                      fontSize: "1rem",
-                      formatter: function () {
-                        return "100%";
-                      },
-                    },
-                  },
-                },
-              },
+          },
+          total: {
+            show: true,
+            label: "Skills",
+            fontSize: "1rem",
+            formatter: function () {
+              return "100%";
             },
-            colors: ["#6366F1", "#22C55E", "#EF4444", "#6B7280"], // Tailwind Primary, Success, Error, Neutral
-            legend: {
-              show: true,
-              position: "bottom",
-              labels: {
-                colors: "#374151", // Tailwind Gray-700
-              },
-              markers: {
-                offsetX: -5,
-              },
-            },
-            tooltip: {
-              enabled: true,
-            },
-          };
-      
-          // Initialize chart
+          },
+        },
+      },
+    },
+  },
+  colors: ["#6366F1", "#22C55E", "#EF4444", "#6B7280"], // Tailwind Primary, Success, Error, Neutral
+  legend: {
+    show: false, // Disable legend
+  },
+  tooltip: {
+    enabled: true,
+  },
+};
+
           const chart = new ApexCharts(document.querySelector("#apex-doughnut-chart"), options);
           chart.render();
         });
