@@ -4,6 +4,8 @@ const fixed = document.querySelector('.fixed');
 const openModal = document.querySelector('#openModalButton');
 const redirect = document.querySelector('#redirect');
 
+redirect.style.position = 'relative';
+redirect.style.zIndex = '9999'
 redirect.addEventListener('click', function(event) {
     event.stopPropagation(); // Prevent other clicks from interfering
     window.location.href = 'https://www.linkedin.com/in/enis-abazi-9a7097241/';
